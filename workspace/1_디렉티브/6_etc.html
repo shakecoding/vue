@@ -17,10 +17,12 @@
       text-align: left;
     }
 
+    /* 콧수염 보이지 않게 하기 위해 추가! */
     [v-cloak]{display: none;}
   </style>
 </head>
 <body>
+  <!-- 콧수염 보이지 않게 하기 위해 추가! -->
   <div id="app" v-cloak>
     <h2>관심 분야</h2>
     <table>
@@ -34,8 +36,10 @@
       <tbody>
         <!-- 인덱스 번호를 생성할 수는 있지만 이렇게 사용하면 안된다. -->
         <tr v-for="(user, index) in users" :key="index">
-          <td>{{ index + 1 }}</td>
-          <td>{{ user.name }}</td>
+          <!-- 콧수염 까지 그대로 표현 컴파일 X -->
+          <td v-pre>{{ index + 1 }}</td>
+          <!-- 한 번 설정되면 수정되지 않는다. -->
+          <td v-once>{{ user.name }}</td>
           <td>
             <ul>
               <li v-for="(inter, index) in user.interests" :key="index">{{ inter }}</li>
