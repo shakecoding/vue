@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건 렌더링 디렉티브</title>
+</head>
+<body>
+    <div id="app">
+        <label for="age">나이 </label>
+        <input type="text" v-model="age" placeholder="나이 입력">
+
+        <p v-show="age > 19">!!!술 가져와!!!</p>
+
+        <h2 v-if="age">나이 대</h2>
+        <p v-if="age">{{parseInt(age / 10)*10}}대</p>
+        <p v-if="age > 29">4대</p>
+        <p v-else-if="age > 19">3대</p>
+        <p v-else-if="age > 9">2대</p>
+        <p v-else-if="age > 0">1대</p>
+        <p v-else>나이를 입력하지 않았어요!</p>
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm = Vue.createApp({
+    name: "test",
+    data() {
+        return { 
+            age : null
+        };
+    },
+    }).mount("#app");
+</script>
+</html>

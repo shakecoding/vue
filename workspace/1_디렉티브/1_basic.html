@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-text="data"></h1>
+        <div v-html="data2"></div>
+        <!-- <a v-bind:href="data3">네이버 가쟈!</a> -->
+        <a :href="data3">네이버 가쟈!</a><br>
+
+        <!-- 단방향 데이터 설명 시 추가 -->
+        <!-- 콘솔에 vm.data4 를 찍어도 변하지 않는다 확인. -->
+        <input type="text" :value="data4">
+    </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    let m = {
+        data : 'hello',
+        data2 : '<a href="https://www.naver.com/">네이버로 이동</a>',
+        data3 : "https://www.naver.com/",
+        data4 : 'hogeun'
+    };
+
+    let vm = Vue.createApp({
+        name:'app',
+        data() {
+            return m;
+        },
+    }).mount('#app'); // -> 얘를 body 로 하면 문제!
+
+    //콘솔창에서 vm.data 를 바꾸는 것도 실습 한 번 하자!
+</script>
+</html>

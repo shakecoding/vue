@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-model</title>
+</head>
+<body>
+<div id="app">
+    <!-- 콘솔 창에 vm.id 때려서 확인 -->
+    <input type="text" v-model="id" placeholder="ID">
+    <br>
+
+    <div>
+        <h2>관심 분야</h2>
+        <input type="checkbox" id="hobbyA" value="게임" v-model="interesting" />
+        <label for="hobbyA">게임</label><br />
+        <input type="checkbox" id="hobbyB" value="소프트웨어" v-model="interesting" />
+        <label for="hobbyB">소프트웨어</label><br />
+        <input type="checkbox" id="hobbyC" value="하드웨어" v-model="interesting" />
+        <label for="hobbyC">하드웨어</label><br />
+        <input type="checkbox" id="hobbyD" value="프론트엔드" v-model="interesting" />
+        <label for="hobbyD">프론트엔드</label><br />
+        <input type="checkbox" id="hobbyE" value="벡엔드" v-model="interesting" />
+        <label for="hobbyE">벡엔드</label><br />
+    </div>
+    <div>
+        <h2>현재 IT 과정의 만족도</h2>
+        <input type="radio" name="score" id="very-good" value="5" v-model="score" />
+        <label for="very-good">5</label><br />
+        <input type="radio" name="score" id="good" value="4" v-model="score" />
+        <label for="good">4</label><br />
+        <input type="radio" name="score" id="soso" value="3" v-model="score" />
+        <label for="soso">3</label><br />
+        <input type="radio" name="score" id="little-no" value="2" v-model="score" />
+        <label for="little-no">2</label><br />
+        <input type="radio" name="score" id="very-no" value="1" v-model="score" />
+        <label for="very-no">1</label><br />
+    </div>
+    <div>
+        <h2>지금 먹고 싶은 음식</h2>
+        <select v-model="food">
+          <option value="">먹고 싶은 음식 선택</option>
+          <option value="치킨">치킨</option>
+          <option value="피자">피자</option>
+          <option value="잡채">잡채</option>
+          <option value="우동">우동</option>
+          <option value="땡초우동">땡초우동</option>
+        </select>
+    </div>
+
+    <div>
+        <h2>정보 제공 수신 동의</h2>
+        <input type="checkbox" id="agreement" v-model="agree" true-value="yes" false-value="no">
+        <label for="agreement">수신 동의 여부</label><br />
+    </div>
+
+    <p>입력하신 이름 : <span>{{id}}</span></p>
+    <p>관심 분야 : <span>{{interesting.join(', ')}}</span></p>
+    <p>만족도 : <span v-text="score"></span></p>
+    <p>먹고싶은 음식 : <span v-text="food"></span></p>
+    <p>정보 제공 수신 동의 여부 : <span v-text="agree"></span></p>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm = Vue.createApp({
+    name: "test",
+    data() {
+        return { 
+            id: "", 
+            interesting : [],
+            score : '',
+            food : '',
+            agree : '' // 나중에 no 추가
+        };
+    },
+    }).mount("#app");
+</script>
+</body>
+</html>
