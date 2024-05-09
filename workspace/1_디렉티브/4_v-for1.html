@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for Example</title>
+</head>
+<body>
+  <div id="app">
+    <h2>Item List</h2>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">
+        {{ index }}: {{ item }}
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    const vm = Vue.createApp({
+      data() {
+        return {
+          items: ['류호근', '레오나르도 디카프리오', '김무열', '이제훈', '강하늘']
+        }
+      }
+    }).mount('#app')
+  </script>
+</html>
