@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04-11</title>
+  </head>
+  <body>
+    <div id="app">
+      이름 : <input type="text" v-model.trim="name" placeholder="영문 두글자 이상을 입력하세요" /><br />
+      <ul>
+        <li v-for="c in contacts">{{c.name}} : {{c.tel}}</li>
+      </ul>
+      <div v-show="isLoading">검색중</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios"></script>
+    <script src="https://unpkg.com/lodash"></script> 
+    <script>
+      const BASEURL = "https://contactsvc.bmaster.kro.kr";
+      var vm = Vue.createApp({
+        name: "App",
+        data() {
+          return { name: "", contacts: [], isLoading: false };
+        },
+        // 객체 만들어질 때 호출
+        created() {
+          console.log("## created");
+        },
+        // 마운트 될 때 호출
+        mounted() {
+          this.name = "se";
+          console.log("## mounted");
+        },
+        // 데이터가 변경되어 DOM이 업데이트된 후 호출
+        // 이 3가지는 디버깅 용도로 사용할 수 있다. (생명주기 메서드)
+        updated() {
+          const lis = document.getElementsByTagName("li");
+          console.log("## li tags count : " + lis.length);
+        },
+        watch: {
+          name(current) { // name 속성을 관찰하여 값이 변경될 때마다 호출되는 핸들러
+            if (current.length >= 2) {
+              this.fetchContacts(); // 두 글자 이상일 때 메소드 호출
+            } else {
+              this.contacts = []; // 아니면 비워버리기
+            }
+          },
+        },
+        methods: {
+          fetchContacts: _.debounce(function () { // lodash 라이브러리 안에 있고, 함수가 한 번에 여러 번 호출되는 것을 방지
+            this.isLoading = true;
+
+            // 외부 API 에서 데이터를 가져온다.
+            axios.get(BASEURL + `/contacts_long/search/${this.name}`).then((response) => {
+              this.isLoading = false;
+              this.contacts = response.data;
+            });
+          }, 300),
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

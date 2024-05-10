@@ -9,7 +9,12 @@
 <div id="app">
     <!-- 콘솔 창에 vm.id 때려서 확인 -->
     <!-- <input type="text" v-model="id" placeholder="ID"> -->
-    <input type="text" placeholder="ID" v-bind:value="id" @input="changeId">
+
+    <!-- 한글 렌더링 문제 해결 -->
+    <!-- <input type="text" placeholder="ID" v-bind:value="id" @input="changeId"> -->
+
+    <!-- 수식어 -->
+    <input type="text" v-model.lazy="id" placeholder="ID">
     <br>
 
     <div>
