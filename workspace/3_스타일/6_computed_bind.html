@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>06-10</title>
+    <style>
+      .score {
+        border: solid 1px black;
+      }
+      .warning {
+        background-color: skyblue;
+        color: purple;
+        vertical-align: middle; /* 수직 중앙 정렬 */
+        margin-left: 10px; /* 좌측 여백 추가 */
+        padding: 0 5px; /* 내부 여백 설정 */
+        border-radius: 5px; /* 경계선 둥글게 처리 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <p>1부터 100까지만 입력가능합니다.</p>
+        <div>
+          점수 : <input type="text" class="score" v-model.number="score" :class="info" />
+          <!-- <img src="https://contactsvc.bmaster.kro.kr/img/error.png" class="warnimage" v-if="info.warning" title="1부터 100까지만 입력하세요." /> -->
+          <span class="warning" v-if="info.warning">입력 확인!</span>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: "test",
+        data() {
+          return { score: 0 };
+        },
+        computed: {
+          info() {
+            return { warning: this.score < 1 || this.score > 100 };
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

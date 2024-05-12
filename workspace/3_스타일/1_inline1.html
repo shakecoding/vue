@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>인라인 스타일 지정</title>
+  </head>
+  <body>
+    <div id="app">
+      <button id="a" :style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: "test",
+        data() {
+          return {
+            style1: { backgroundColor: "aqua", color: "black" },
+          };
+        },
+        methods: {
+          overEvent() {
+            vm.style1.backgroundColor = "purple";
+            this.style1.color = "yellow";
+          },
+          outEvent() {
+            this.style1.backgroundColor = "aqua";
+            this.style1.color = "black";
+          },
+        },
+      }).mount("#app");
+      // html 에서는 대소문자 구분이 없기에 - 를 사용한다.
+      // js 에서는 변수명으로 - 을 사용할 수 없다.
+      // 알아서 매핑되면서 들어간다.
+    </script>
+  </body>
+</html>

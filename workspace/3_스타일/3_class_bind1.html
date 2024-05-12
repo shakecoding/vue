@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>클래스 적용1</title>
+    <style>
+      .buttonColor {
+        background-color: aqua;
+        color: black;
+      }
+      .buttonLayout {
+        text-align: center;
+        width: 120px;
+      }
+      .staticBorder {
+        border: khaki dashed 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <button class="staticBorder" :class="myColor">테스트 버튼</button> -->
+      <button class="staticBorder" :class="[myColor, myLayout]">테스트 버튼</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: "test",
+        data() {
+          return {
+            myColor: "buttonColor",
+            mylayout : "buttonLayout"
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
