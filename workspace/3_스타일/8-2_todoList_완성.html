@@ -100,8 +100,7 @@
             }
           },
           deleteTodo(id) {
-            let index = this.todolist.findIndex((item) => id === item.id);
-            this.todolist.splice(index, 1);
+            this.todolist = this.todolist.filter(item => item.id !== id);
           },
           toggleCompleted(id) {
             let index = this.todolist.findIndex((item) => id === item.id);

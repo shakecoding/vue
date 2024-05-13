@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Event Bubbling Example</title>
+</head>
+<body>
+    <div id="app">
+        <div @click="parentClicked">
+            Parent Div
+            <br>
+            <!-- <button @click="buttonClicked">눌러봐!</button> -->
+            <button @click.stop="buttonClicked">눌러봐!</button>
+        </div>
+    </div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.createApp({
+        methods: {
+            parentClicked() {
+                alert('Parent Div clicked!');
+            },
+            buttonClicked(event) {
+                alert('Button clicked!');
+                // event.stopPropagation();  // Vue.js에서 이벤트 버블링을 막기 위해 사용
+            }
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>
