@@ -2,14 +2,14 @@
 <!-- vue vscode snippets -->
 
 <template>
-    <input type="checkbox" :checked='checked'> 체크박스 테스트
+    <input type="checkbox" :checked='idol.checked'> {{ idol.name }}
     <br>
 </template>
 
 <script>
     export default {
         name : 'Checkbox',
-        props : ['name', 'checked']
+        props : ['idol']
     };
 </script>
 

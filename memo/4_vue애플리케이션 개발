@@ -25,6 +25,38 @@
     6) npm run dev <- vite 기반 Vue 애플리케이션 실행
     [ 새로운 프로젝트 만들 때 마다 새롭게 만들어줘야함! 복사 붙여넣기 하면 헷갈림!]
 
+▶ 프로젝트 설정 // 이건 건너 뛰자.
+    Project name:
+	    프로젝트의 이름을 지정합니다. 프로젝트 폴더의 이름이 됩니다.
+
+    TypeScript:
+        No: JavaScript를 사용합니다.
+        Yes: TypeScript를 사용합니다. TypeScript는 JavaScript의 상위 집합으로, 정적 타입 체킹과 최신 JavaScript 기능을 제공합니다.
+
+    JSX/TSX Support:
+        No: JSX/TSX를 사용하지 않습니다.
+        Yes: JSX/TSX를 사용합니다. JSX는 React와 같은 라이브러리에서 컴포넌트를 선언할 때 사용됩니다.
+
+    Vue Router for Single Page Application:
+        No: Vue Router를 포함하지 않습니다.
+        Yes: Vue Router를 포함합니다. Vue Router는 Vue.js 애플리케이션에서 라우팅을 관리하는 공식 라이브러리입니다.
+
+    Pinia for State Management:
+        No: Pinia를 포함하지 않습니다.
+        Yes: Pinia를 포함합니다. Pinia는 Vuex를 대체하는 Vue.js의 상태 관리 라이브러리입니다.
+
+    Vitest for Unit Testing:
+        No: Vitest를 포함하지 않습니다.
+        Yes: Vitest를 포함합니다. Vitest는 Vite와 통합된 테스트 프레임워크로, 유닛 테스트를 작성할 수 있게 해줍니다.
+
+    Cypress for End-to-End Testing:
+        No: Cypress를 포함하지 않습니다.
+        Yes: Cypress를 포함합니다. Cypress는 엔드 투 엔드 테스트 프레임워크로, 애플리케이션을 실제로 실행하면서 테스트를 할 수 있게 해줍니다.
+
+    ESLint for Code Linting:
+        No: ESLint를 포함하지 않습니다.
+        Yes: ESLint를 포함합니다. ESLint는 코드 품질을 보장하기 위해 JavaScript 및 Vue 코드에서 오류와 일관성 문제를 찾아줍니다.
+
 ▶ 프로젝트 구성
     1) src : .js, .vue 파일을 작성하는 곳, 시작파일은 src/main.js
     2) public 이미지와 등 정리
@@ -36,20 +68,3 @@
     - App.vue <- 단일 파일 컴포넌트 
     - componets 폴더 안 여러가지 컴포넌트 확인!
 
-▶ 애플리케이션에 컴포넌트 등록 방법
-    [ 기존 프로젝트 복사 붙여넣기 후 기존에 있던 거 삭제하고 진행. ]
-    1) 전역 컴포넌트
-        main.js 에서 Vue 애플리케이션 인스턴스의 component() 메서드를 이용.
-        전역 컴포넌트로 등록한 경우, 루트 컴포넌트의 하위의 모든 자식 컴포넌트 어디에서나
-        등록한 컴포넌트를 이용할 수 있다.
-        전역 등록은 여러 화면, 컴포넌트에서 공통적으로 자주 사용하는 컴포넌트일 때로 한정.
-
-    2) 지역 컴포넌트
-        특정 컴포넌트 객체 내부에 components 라는 옵션을 만들고 
-        그곳에 템플릿에서 사용할 태그명과 컴포넌트 객체를 등록하여 사용.
-        등록한 컴포넌트 내부에서만 사용 가능!
-
-▶ 컴포넌트 간의 정보 전달
-    여러 컴포넌트들을 조합하여 애플리케이션을 개발하면 컴포넌트 간의 정보의 전달이 반드시 필요하다.
-
-    props : 해당 속성을 통해 자식 컴포넌트로 정보를 전달할 수 있다. 부모에서 자식으로만 가능!

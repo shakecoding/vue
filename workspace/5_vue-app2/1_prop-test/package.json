@@ -1,7 +1,7 @@
 {
-  "name": "1_vue-app-test",
-  "version": "0.0.0",
+  "name": "1_prop-test",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.8"
+    "vite": "^5.2.0"
   }
 }
