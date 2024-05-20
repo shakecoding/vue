@@ -12,6 +12,7 @@
 
 <script>
 import Checkbox from './components/Checkbox4.vue';
+import Idol from './idol.js';
 
   // 이거 먼저 적으면 위에 거 자동완성 됨.
   export default {
@@ -24,7 +25,7 @@ import Checkbox from './components/Checkbox4.vue';
             new Idol(1, "BTS", true),
             new Idol(2, "블핑", false),
             new Idol(3, "류호근", false),
-            new Idol(4, "제이팍", false),
+            new Idol(4, "제이팍", '류호근'),
         ]
       }
     }

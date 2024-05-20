@@ -2,7 +2,7 @@
 <!-- vue vscode snippets -->
 
 <template>
-    <input type="checkbox" :checked='checked'>{{ id }} - {{ name }}
+    <input type="checkbox" :checked='idol.checked'>{{ idol.id }} - {{ idol.name }}
     <br>
 </template>
 
