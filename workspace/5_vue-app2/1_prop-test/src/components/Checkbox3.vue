@@ -18,6 +18,13 @@
                 required : true
                 // default : true
             }
+        },
+        // 라이프 사이클 훅
+        // created, mounted 등등
+        mounted() {
+          if (typeof this.checked !== "boolean"){
+            alert('checked 옵션을 확인하세요!');
+          }
         }
     };
 </script>

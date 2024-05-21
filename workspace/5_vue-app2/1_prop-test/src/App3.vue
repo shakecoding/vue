@@ -24,7 +24,7 @@ import Checkbox from './components/Checkbox3.vue';
         idols : [
           { id:1, name:"BTS", checked:true},
           { id:2, name:"Black Pink", checked:false },
-          { id:3, name:"EXO" },
+          { id:3, name:"EXO" , checked: '류호근'},
           { id:4, name:"ITZY" },
         ]
       }
