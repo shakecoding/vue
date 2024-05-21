@@ -1,5 +1,5 @@
 {
-  "name": "2_event-test",
+  "name": "3-todolist",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,10 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "mitt": "^3.0.1",
->>>>>>> origin/main
     "vue": "^3.4.21"
   },
   "devDependencies": {
